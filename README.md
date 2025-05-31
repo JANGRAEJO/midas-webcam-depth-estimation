@@ -6,7 +6,7 @@ This project demonstrates **real-time monocular depth estimation** using a regul
 
 ---
 
-## 🚀 Project Purpose
+## Project Purpose
 
 Estimating depth from a single RGB camera feed can be incredibly useful in robotics, augmented reality, assistive tech, and more. By using **MiDaS**, a state-of-the-art model from Intel ISL, this project shows how accurate depth information can be extracted from regular webcams in real-time.
 
@@ -17,7 +17,7 @@ I built this to:
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Python 3.10+**
 - **Torch** + **TorchVision**
@@ -26,7 +26,7 @@ I built this to:
 
 ---
 
-## 🧪 How It Works
+## How It Works
 
 1. The webcam feed is captured using OpenCV.
 2. The frame is resized and normalized to fit the MiDaS model’s expected input.
@@ -35,7 +35,7 @@ I built this to:
 
 ---
 
-## 📁 Folder Structure
+## Folder Structure
 
 ```text
 
@@ -52,7 +52,7 @@ midas-webcam-depth-estimation/
 
 ---
 
-## 📦 Installation
+## Installation
 
 1. Create a virtual environment (optional but recommended):
 
@@ -69,7 +69,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Run the Demo
+## ▶Run the Demo
 
 To start real-time depth estimation:
 
@@ -85,7 +85,7 @@ python cam_check.py
 
 ---
 
-## 🔍 requirements.txt
+## requirements.txt
 
 ```text
 torch
@@ -97,7 +97,7 @@ timm
 
 ---
 
-## 🧠 My Effort and What’s Next
+## My Effort and What’s Next
 
 This project is a culmination of my efforts to understand monocular depth estimation with a real-time feed. It required digging into:
 
@@ -113,12 +113,12 @@ This project is a culmination of my efforts to understand monocular depth estima
 
 ---
 
-## 📄 License
+## License
 
 MIT
 
 ---
 
-## 🙋‍♂️ Author
+## Author
 
-Made with ❤️ by William Jo
+Made by William Jo
