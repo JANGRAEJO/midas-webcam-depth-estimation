@@ -4,24 +4,24 @@ This project demonstrates **real-time monocular depth estimation** using the MiD
 
 ![Demo GIF](demo_midas-webcam-depth-estimation.gif)
 
-## 🔍 Motivation
+## Motivation
 Depth estimation is a crucial building block for AR/VR, robotics, and computer vision. By leveraging state-of-the-art pretrained models like MiDaS, we can approximate scene depth in real-time using just a regular webcam. This project was created to:
 
 - Experiment with MiDaS in a live setting
 - Test integration with live webcam inputs
 - Prepare for further fusion with object detection (YOLO) and distance conversion tools
 
-## 🧠 Model
+## Model
 This project uses the [MiDaS v3.1 Small](https://github.com/isl-org/MiDaS) model from the `torch.hub` repository.
 
-## 📦 Tech Stack
+## Tech Stack
 - Python 3.10+
 - PyTorch
 - OpenCV
 - timm (for model loading)
 - Conda environment (not virtualenv)
 
-## 🗂️ Folder Structure
+## Folder Structure
 ```
 ├── cam_check.py                    # Simple webcam test script
 ├── realtime_midas_depth.py        # Main depth estimation logic
@@ -32,7 +32,7 @@ This project uses the [MiDaS v3.1 Small](https://github.com/isl-org/MiDaS) model
 ├── requirements.txt
 ```
 
-## ▶️ How to Run
+## How to Run
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/JANGRAEJO/midas-webcam-depth-estimation.git
@@ -55,14 +55,14 @@ pip install -r requirements.txt
 python realtime_midas_depth.py
 ```
 
-## 🧪 File Descriptions
+## File Descriptions
 ### `cam_check.py`
 Runs a quick test to make sure the webcam is functioning correctly using OpenCV.
 
 ### `realtime_midas_depth.py`
 Main script that loads MiDaS, grabs webcam frames, preprocesses them, and shows the depth estimation output in real-time.
 
-## 🧱 Requirements
+## Requirements
 Check `requirements.txt` for all required packages.
 
 ```txt
@@ -72,21 +72,21 @@ opencv-python
 timm
 ```
 
-## 📌 Limitations
+## Limitations
 - Output is relative depth, not absolute distances.
 - FPS may vary depending on hardware (MiDaS is heavy on CPU/GPU).
 
-## 🔮 Next Steps
+## Next Steps
 - Integrate with YOLOv9 for object detection + distance annotation
 - Calibrate real-world scaling using known markers or camera parameters
 - Build web app or GUI using Streamlit or Flask
 
-## 🙋 Author
+## Author
 **Jangrae Jo**  
 MS in ECE, UMass Amherst  
 Open to research and collaboration in computer vision and depth sensing.
 
-## 🪪 License
+## License
 MIT License – see [LICENSE](LICENSE) file.
 
 ---
