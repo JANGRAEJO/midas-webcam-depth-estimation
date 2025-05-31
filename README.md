@@ -1,124 +1,93 @@
 # MiDaS Webcam Depth Estimation
 
-This project demonstrates **real-time monocular depth estimation** using a regular webcam and a pre-trained MiDaS model (DPT_Large), all without the need for a depth sensor. It provides a lightweight way to apply deep learning-based depth prediction on live video feeds.
+This project demonstrates **real-time monocular depth estimation** using the MiDaS model and a regular webcam feed. No depth sensor is required.
 
-![Demo](demo_midas-webcam-depth-estimation.gif)
+![Demo GIF](demo_midas-webcam-depth-estimation.gif)
 
----
+## 🔍 Motivation
+Depth estimation is a crucial building block for AR/VR, robotics, and computer vision. By leveraging state-of-the-art pretrained models like MiDaS, we can approximate scene depth in real-time using just a regular webcam. This project was created to:
 
-## Project Purpose
+- Experiment with MiDaS in a live setting
+- Test integration with live webcam inputs
+- Prepare for further fusion with object detection (YOLO) and distance conversion tools
 
-Estimating depth from a single RGB camera feed can be incredibly useful in robotics, augmented reality, assistive tech, and more. By using **MiDaS**, a state-of-the-art model from Intel ISL, this project shows how accurate depth information can be extracted from regular webcams in real-time.
+## 🧠 Model
+This project uses the [MiDaS v3.1 Small](https://github.com/isl-org/MiDaS) model from the `torch.hub` repository.
 
-I built this to:
-- Understand the application of depth estimation in real-world scenarios
-- Build a base for future 3D vision projects
-- Possibly integrate this with object detection (YOLO) and measurement pipelines
+## 📦 Tech Stack
+- Python 3.10+
+- PyTorch
+- OpenCV
+- timm (for model loading)
+- Conda environment (not virtualenv)
 
----
-
-## Tech Stack
-
-- **Python 3.10+**
-- **Torch** + **TorchVision**
-- **OpenCV**
-- **MiDaS** (via `timm` pretrained weights)
-
----
-
-## How It Works
-
-1. The webcam feed is captured using OpenCV.
-2. The frame is resized and normalized to fit the MiDaS model’s expected input.
-3. The depth is predicted using the `DPT_Large` MiDaS model.
-4. The depth map is post-processed and displayed live.
-
----
-
-## Folder Structure
-
-```text
-
-midas-webcam-depth-estimation/
-├── cam_check.py
-├── realtime_midas_depth.py
-├── demo_midas-webcam-depth-estimation.gif
+## 🗂️ Folder Structure
+```
+├── cam_check.py                    # Simple webcam test script
+├── realtime_midas_depth.py        # Main depth estimation logic
+├── demo_midas-webcam-depth-estimation.gif  # Demo output for README
 ├── LICENSE
 ├── .gitignore
-├── README.md
-└── requirements.txt
-
+├── README.md                      # This file
+├── requirements.txt
 ```
 
----
-
-## Installation
-
-1. Create a virtual environment (optional but recommended):
-
+## ▶️ How to Run
+### 1. Clone the Repository
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+git clone https://github.com/JANGRAEJO/midas-webcam-depth-estimation.git
+cd midas-webcam-depth-estimation
 ```
 
-2. Install dependencies:
+### 2. Create and Activate Conda Environment
+```bash
+conda create -n midas-depth python=3.10 -y
+conda activate midas-depth
+```
 
+### 3. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-## ▶Run the Demo
-
-To start real-time depth estimation:
-
+### 4. Run Webcam Depth Estimation
 ```bash
 python realtime_midas_depth.py
 ```
 
-To test webcam availability:
+## 🧪 File Descriptions
+### `cam_check.py`
+Runs a quick test to make sure the webcam is functioning correctly using OpenCV.
 
-```bash
-python cam_check.py
-```
+### `realtime_midas_depth.py`
+Main script that loads MiDaS, grabs webcam frames, preprocesses them, and shows the depth estimation output in real-time.
 
----
+## 🧱 Requirements
+Check `requirements.txt` for all required packages.
 
-## requirements.txt
-
-```text
-torch
+```txt
+torch>=2.0.0
 torchvision
 opencv-python
 timm
-
 ```
 
----
+## 📌 Limitations
+- Output is relative depth, not absolute distances.
+- FPS may vary depending on hardware (MiDaS is heavy on CPU/GPU).
 
-## My Effort and What’s Next
+## 🔮 Next Steps
+- Integrate with YOLOv9 for object detection + distance annotation
+- Calibrate real-world scaling using known markers or camera parameters
+- Build web app or GUI using Streamlit or Flask
 
-This project is a culmination of my efforts to understand monocular depth estimation with a real-time feed. It required digging into:
+## 🙋 Author
+**Jangrae Jo**  
+MS in ECE, UMass Amherst  
+Open to research and collaboration in computer vision and depth sensing.
 
-- Model input/output formatting
-- GPU acceleration with Torch
-- Managing large virtual environments (and GitHub integration issues)
-
-### Next Steps:
-- Add side-by-side depth + RGB output to a video
-- Overlay YOLOv9 bounding boxes with depth
-- Publish as a Streamlit or Flask web app
-- Quantify distance in centimeters using MiDaS + camera calibration
-
----
-
-## License
-
-MIT
+## 🪪 License
+MIT License – see [LICENSE](LICENSE) file.
 
 ---
-
-## Author
-
-Made by William Jo
+> If this project helps you, please ⭐ the repo and follow for more updates!
